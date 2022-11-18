@@ -1,0 +1,38 @@
+body{
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+}
+
+
+.redditPost {
+    border-width:1px;
+    border-style:ridge;
+    border-color:black;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.headerPost {
+    border-width:1px;
+    border-style:ridge;
+    border-color:black;
+    background-color: chocolate;
+}
+
+.upVotePost {
+    border-width:1px;
+    border-style:ridge;
+    border-color:black;
+}
+
+#profilePic {
+    width: 20px;
+}
+
+#upvoteSign {
+    width: 15px;
+    margin-left: 3px;
+    margin-top: 2px;
+}

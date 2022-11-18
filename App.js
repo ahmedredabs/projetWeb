@@ -1,20 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import RedditPost from "./components/RedditPost/RedditPost";
+import tempData from "./components/Data/templateData.json";
+import './App.css';
+
 
 export default function App() {
+  const dataPost = tempData;
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app! test</Text>
-      <StatusBar style="auto" />
-    </View>
+    <div>
+      <RedditPost dataPost={dataPost}/>
+    </div>
+    
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
