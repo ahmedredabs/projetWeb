@@ -16,12 +16,18 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="SearchSubreddits" component={SearchSubreddits}/>
         <Stack.Screen name="Subreddits" component={Subreddits}/>
+        <Stack.Screen name="SearchSubreddits" component={SearchSubreddits}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+/**
+ * 
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Subreddits" component={Subreddits}/>
+        <Stack.Screen name="SearchSubreddits" component={SearchSubreddits}/>
+ */
 
 const styles = StyleSheet.create({
   container: {

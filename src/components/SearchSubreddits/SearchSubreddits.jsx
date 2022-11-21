@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Text, TextInput, View } from 'react-native';
+import { Button, Text, TextInput, View } from 'react-native';
+import { Form, FormItem } from 'react-native-form-component';
 import Storage from "../Storage/Storage";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -26,14 +27,11 @@ const SearchSubreddits = () => {
 
   return (
     <View>
-        <form onSubmit={handleAddSubredditName}>
-            <div>
-                Subreddit name: <input value={subreddit} onChange={handleSubredditNameChange} />
-            </div>
-            <div>
-                <button type="submit">add</button>
-            </div>
-        </form>
+        <Form onSubmit={handleAddSubredditName}>
+                <Text>Subreddit name: </Text>
+                <TextInput value={subreddit} onChange={handleSubredditNameChange} />
+                <Button type="submit" title="add" />
+        </Form>
     </View>
   );
 

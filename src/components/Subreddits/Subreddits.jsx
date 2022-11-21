@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from "react";
-import { Text, TextInput, View } from 'react-native';
+import { Button, Text, TextInput, View } from 'react-native';
+import { Form, FormItem } from 'react-native-form-component';
 import Storage from "../Storage/Storage";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -22,11 +23,10 @@ const Subreddits = () => {
 
   return (
     <View>
-        <form onSubmit={handleViewSubreddits}>
-            <div>
-                <button type="Get">add</button>
-            </div>
-        </form>
+        <Form onSubmit={handleViewSubreddits}>
+          <FormItem />
+          <Button title="add"/>
+        </Form>
     </View>
   );
 
