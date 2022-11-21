@@ -1,9 +1,10 @@
 import React from "react";
+import { Text } from "react-native";
 
 
 const Home = () => {
   return (
-    <h1>Test</h1>
+    <Text>Test</Text>
   );
 
 };
