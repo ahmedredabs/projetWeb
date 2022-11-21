@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Text, View} from 'react-native';
+import {Text, ScrollView} from 'react-native';
 import Storage from "../Storage/Storage";
 import {newSubreddits} from "../../service/RedditApiService"
 
@@ -18,12 +18,12 @@ const New = () => {
     },[savedSubreddits, loaded])
 
     return (
-        <View>
+        <ScrollView>
             <Text>
                 Subreddit : {loaded && savedSubreddits[0].data.subreddit_name_prefixed}
             </Text>
             <Text>Title : {loaded && savedSubreddits[0].data.title}</Text>
-        </View>
+        </ScrollView>
     );
 };
 
