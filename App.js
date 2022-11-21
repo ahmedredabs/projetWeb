@@ -1,12 +1,25 @@
+import React from "react"
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import SearchSubreddits from './src/components/SearchSubreddits/SearchSubreddits'
+import Subreddits from "./src/components/Subreddits/Subreddits";
+import Storage from "./src/components/Storage/Storage";
+import Home from './src/components/Home/Home'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export default function App() {
+
+  const Stack = createNativeStackNavigator();  
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app! test</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="SearchSubreddits" component={SearchSubreddits}/>
+        <Stack.Screen name="Subreddits" component={Subreddits}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
