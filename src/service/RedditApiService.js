@@ -17,4 +17,14 @@ const newSubreddits = () => {
     )
 }
 
-export { searchSubreddits, newSubreddits }
+const topSubreddits = () => {
+    const request = axios.get(Endpoints.GET_TOP_SUBREDDITS_ENDPOINT)
+
+    return request.then(
+        response => {
+            return Promise.resolve(response.data)
+        }
+    )
+}
+
+export { searchSubreddits, newSubreddits, topSubreddits }

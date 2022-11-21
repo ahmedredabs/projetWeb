@@ -1,8 +1,8 @@
 import {StyleSheet} from 'react-native';
-import New from "./src/components/New/New";
-import Home from './src/components/Home/Home'
-import Subreddits from "./src/components/Subreddits/Subreddits";
-import SearchSubreddits from './src/components/SearchSubreddits/SearchSubreddits'
+import TopPosts from "../projetWeb/src/components/TopPosts/TopPosts"
+import Home from '../projetWeb/src/components/Home/Home'
+import Subreddits from "../projetWeb/src/components/Subreddits/Subreddits";
+import SearchSubreddits from '../projetWeb/src/components/SearchSubreddits/SearchSubreddits'
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -13,7 +13,7 @@ export default function App() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="News" component={New}/>
+                <Stack.Screen name="TopPosts" component={TopPosts}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
