@@ -1,9 +1,8 @@
-import React from "react"
 import {StyleSheet} from 'react-native';
-import SearchSubreddits from './src/components/SearchSubreddits/SearchSubreddits'
-import Subreddits from "./src/components/Subreddits/Subreddits";
 import New from "./src/components/New/New";
 import Home from './src/components/Home/Home'
+import Subreddits from "./src/components/Subreddits/Subreddits";
+import SearchSubreddits from './src/components/SearchSubreddits/SearchSubreddits'
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 

@@ -1,33 +1,30 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Text, View} from 'react-native';
 import Storage from "../Storage/Storage";
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useNavigation} from "@react-navigation/native";
+import {newSubreddits} from "../../service/RedditApiService"
 
 const New = () => {
-    const {navigate} = useNavigation();
     const storeObjectData = Storage.storeObjectData
 
     const [subreddit, setSubredditName] = useState('')
     const [savedSubreddits, saveSubreddits] = useState([])
+    const [loaded, setLoaded] = useState(false)
 
-    const handleAddSubredditName = (event) => {
-        event.preventDefault();
-        savedSubreddits.push(subreddit)
-        AsyncStorage.setItem('savedSubreddits', JSON.stringify(savedSubreddits))
-            .then(json => console.log('success!'))
-            .catch(error => console.log('error!'));
-        saveSubreddits(
-            savedSubreddits
-        );
-    };
+    useEffect(() => {
+        newSubreddits().then(data => {
+            saveSubreddits(data.data.children)
+            setLoaded(true)
+        })
+    },[savedSubreddits, loaded])
 
     return (
         <View>
-                <Text>{subreddit}</Text>
+            <Text>
+                Subreddit : {loaded && savedSubreddits[0].data.subreddit_name_prefixed}
+            </Text>
+            <Text>Title : {loaded && savedSubreddits[0].data.title}</Text>
         </View>
     );
-
 };
 
 export default New;
