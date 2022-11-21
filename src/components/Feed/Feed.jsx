@@ -1,42 +1,14 @@
-import React, {useCallback, useState, useEffect} from 'react';
-import {
-    Button,
-    View,
-    Text,
-    StyleSheet,
-    Image,
-    ScrollView,
-    Pressable,
-} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Image, Pressable, StyleSheet, Text, View,} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-const GetSubRedditIcon = props => {
-    const [SubReddit, setSubReddit] = useState({all: null});
-
-    return (
-        <View>
-            {!SubReddit.all ? (
-                <></>
-            ) : (
-                <Image
-                    style={styles.avatar}
-                    source={{uri: SubReddit.all.data.icon_img}}
-                />
-            )}
-        </View>
-    );
-};
-
-function Feed(props) {
+function Feed() {
     const {navigate} = useNavigation();
-
     const [SubReddit, setSubReddit] = useState({all: null});
-
 
     useEffect(() => {
-        
         // console.log(SubReddit.all);
-    // console.log(SubReddit.all.data.children[0])
+        // console.log(SubReddit.all.data.children[0])
     });
 
     return (
@@ -56,12 +28,9 @@ function Feed(props) {
                                     <Pressable
                                         onPress={() => {
                                             navigate('Subreddit');
-                                            SubRedditName = item.data.subreddit;
+                                            //SubRedditName = item.data.subreddit;
                                         }}>
                                         <View style={{flexDirection: 'row'}}>
-                                            <View>
-                                                <GetSubRedditIcon subreddit={item.data.subreddit}/>
-                                            </View>
                                             <View style={{flexDirection: 'column'}}>
                                                 <Text style={styles.title}>
                                                     {!SubReddit.all

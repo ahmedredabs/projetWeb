@@ -1,7 +1,8 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {View} from 'react-native';
 
 const FindIcon = name => {
+    let FilterIcon;
     if (name == 'best') {
         FilterIcon = 'emoji-events';
     } else if (name == 'hot') {
