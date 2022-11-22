@@ -1,12 +1,8 @@
 import React, {useEffect, useState} from "react";
-import {Text, ScrollView} from 'react-native';
-import Storage from "../Storage/Storage";
 import {newSubreddits} from "../../service/RedditApiService"
+import {Post} from "../Post/Post";
 
 const New = () => {
-    const storeObjectData = Storage.storeObjectData
-
-    const [subreddit, setSubredditName] = useState('')
     const [savedSubreddits, saveSubreddits] = useState([])
     const [loaded, setLoaded] = useState(false)
 
@@ -17,14 +13,9 @@ const New = () => {
         })
     },[savedSubreddits, loaded])
 
-    return (
-        <ScrollView>
-            <Text>
-                Subreddit : {loaded && savedSubreddits[0].data.subreddit_name_prefixed}
-            </Text>
-            <Text>Title : {loaded && savedSubreddits[0].data.title}</Text>
-        </ScrollView>
-    );
+    return (loaded && savedSubreddits.map(post => <Post
+        key={post.data.id} post={post.data}
+    />));
 };
 
 export default New;

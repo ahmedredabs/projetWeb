@@ -36,7 +36,6 @@ const SearchSubreddits = () => {
             </Form>
         </View>
     );
-
 };
 
 export default SearchSubreddits;
