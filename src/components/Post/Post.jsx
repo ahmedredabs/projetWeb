@@ -19,17 +19,23 @@ const Post = ({post}) => {
 
     return (
         <View style={styles.container}>
-
-            <Text style={styles.title}>
-                <Image
-                    style={styles.thumbnail}
-                    source={{uri: post.thumbnail}}
-                />
-                {post.title}
+            <View style={styles.header}>
+                <Text style={styles.title}>
+                    <Image
+                        style={styles.thumbnail}
+                        source={{uri: post.thumbnail}}
+                    />
+                    {post.title}
+                </Text>
+                <Text style={styles.author}>Author : {post.author}</Text>
+                <Text style={styles.subreddit}>Subreddit : {post.subreddit_name_prefixed}</Text>
+            </View>
+            
+            <Text style={styles.text}>  
+                <Image style={styles.votes} source={require('../../../assets/upvotesign.png')}/> {post.pwls} 
+                <Image style={styles.votes} source={require('../../../assets/downvotesign.png')}/> {post.downs}
+            
             </Text>
-            <Text style={styles.author}>Author : {post.author}</Text>
-            <Text style={styles.subreddit}>Subreddit : {post.subreddit_name_prefixed}</Text>
-            <Text style={styles.text}>+ {post.pwls} - {post.downs}</Text>
             {
                 (height > 0) &&
                 <Image
@@ -49,11 +55,11 @@ const Post = ({post}) => {
 
 const styles = StyleSheet.create({
     container: {
-        paddingHorizontal: 15,
-        paddingVertical: 7,
         marginBottom: 7,
         elevation: 1,
-        borderWidth: 1
+        borderWidth: 1,
+        marginLeft: 2,
+        marginRight: 2
     },
     thumbnail: {
         width: 15,
@@ -63,8 +69,6 @@ const styles = StyleSheet.create({
     title: {
         fontWeight: 'bold',
         fontSize: 17,
-        borderBottomColor: 'red',
-        borderBottomWidth: StyleSheet.hairlineWidth
     },
     url: {
         color: 'blue',
@@ -84,6 +88,13 @@ const styles = StyleSheet.create({
     text: {
         color: 'black',
         fontSize: 10,
+    },
+    header:{
+        backgroundColor: 'chocolate',
+    },
+    votes: {
+        width: 10,
+        height: 10
     }
 })
 
