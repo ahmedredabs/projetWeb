@@ -1,10 +1,12 @@
 import {StyleSheet} from 'react-native';
-import TopPosts from "../projetWeb/src/components/TopPosts/TopPosts"
-import Home from '../projetWeb/src/components/Home/Home'
-import Subreddits from "../projetWeb/src/components/Subreddits/Subreddits";
-import SearchSubreddits from '../projetWeb/src/components/SearchSubreddits/SearchSubreddits'
+import Subreddits from "./src/components/Subreddits/Subreddits";
+import TopPosts from ".src/components/TopPosts/TopPosts"
+import SearchSubreddits from './src/components/SearchSubreddits/SearchSubreddits'
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import NewsFeed from "./src/components/Feeds/NewsFeed";
+import BestsFeed from "./src/components/Feeds/BestsFeed";
+import HotsFeed from "./src/components/Feeds/HotsFeed";
 
 export default function App() {
 
@@ -13,7 +15,7 @@ export default function App() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="TopPosts" component={TopPosts}/>
+                <Stack.Screen name="Top Posts" component={TopPosts}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
@@ -21,6 +23,12 @@ export default function App() {
 /**
  *
  <Stack.Screen name="Home" component={Home} />
+
+ <Stack.Screen name="News" component={NewsFeed}/>
+ <Stack.Screen name="Bests" component={BestsFeed}/>
+ <Stack.Screen name="Hots" component={HotsFeed}/>
+ <Stack.Screen name="Randoms" component={HotsFeed}/>
+
  <Stack.Screen name="Subreddits" component={Subreddits}/>
  <Stack.Screen name="SearchSubreddits" component={SearchSubreddits}/>
  */

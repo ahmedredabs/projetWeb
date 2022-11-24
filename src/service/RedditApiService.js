@@ -17,7 +17,6 @@ const newSubreddits = () => {
 
 const topSubreddits = () => {
     const request = axios.get(Endpoints.GET_TOP_SUBREDDITS_ENDPOINT)
-
     return request.then(
         response => {
             return Promise.resolve(response.data)
@@ -25,4 +24,31 @@ const topSubreddits = () => {
     )
 }
 
-export { searchSubreddits, newSubreddits, topSubreddits }
+const bestSubreddits = () => {
+    const request = axios.get(Endpoints.FILTER_SUBREDDITS_BY_BEST_ENDPOINT)
+    return request.then(
+        response => {
+            return Promise.resolve(response.data)
+        }
+    )
+}
+
+const hotSubreddits = () => {
+    const request = axios.get(Endpoints.FILTER_SUBREDDITS_BY_HOT_ENDPOINT)
+    return request.then(
+        response => {
+            return Promise.resolve(response.data)
+        }
+    )
+}
+
+const randomSubreddits = () => {
+    const request = axios.get(Endpoints.FILTER_SUBREDDITS_BY_RANDOM_ENDPOINT)
+    return request.then(
+        response => {
+            return Promise.resolve(response.data)
+        }
+    )
+}
+
+export {searchSubreddits, newSubreddits, topSubreddits, bestSubreddits, hotSubreddits, randomSubreddits}
