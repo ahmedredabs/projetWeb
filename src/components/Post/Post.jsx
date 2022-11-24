@@ -27,8 +27,8 @@ const Post = ({post}) => {
                     />
                     {post.title}
                 </Text>
-                <Text style={styles.author}>Author : {post.author}</Text>
-                <Text style={styles.subreddit}>Subreddit : {post.subreddit_name_prefixed}</Text>
+                <Text style={styles.text}>Author : {post.author}</Text>
+                <Text style={styles.text}>Subreddit : {post.subreddit_name_prefixed}</Text>
             </View>
             
             <Text style={styles.text}>  
@@ -58,8 +58,8 @@ const styles = StyleSheet.create({
         marginBottom: 7,
         elevation: 1,
         borderWidth: 1,
-        marginLeft: 2,
-        marginRight: 2
+        marginLeft: 4,
+        marginRight: 4,
     },
     thumbnail: {
         width: 15,
@@ -77,17 +77,10 @@ const styles = StyleSheet.create({
     image: {
 
     },
-    author: {
-        color: 'grey',
-        fontSize: 8,
-    },
-    subreddit: {
-        color: 'grey',
-        fontSize: 8,
-    },
     text: {
         color: 'black',
         fontSize: 10,
+        textAlign: 'justify'
     },
     header:{
         backgroundColor: 'chocolate',
