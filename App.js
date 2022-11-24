@@ -1,12 +1,13 @@
 import {StyleSheet} from 'react-native';
 import Subreddits from "./src/components/Subreddits/Subreddits";
-import TopPosts from ".src/components/TopPosts/TopPosts"
+import TopFeed from "./src/components/Feeds/TopFeed"
 import SearchSubreddits from './src/components/SearchSubreddits/SearchSubreddits'
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import NewsFeed from "./src/components/Feeds/NewsFeed";
 import BestsFeed from "./src/components/Feeds/BestsFeed";
 import HotsFeed from "./src/components/Feeds/HotsFeed";
+import RandomsFeed from './src/components/Feeds/RandomsFeed';
 
 export default function App() {
 
@@ -15,7 +16,7 @@ export default function App() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Top Posts" component={TopPosts}/>
+                <Stack.Screen name="Top Posts" component={TopFeed}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
