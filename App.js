@@ -7,6 +7,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import NewsFeed from "./src/components/Feeds/NewsFeed";
 import BestsFeed from "./src/components/Feeds/BestsFeed";
+import HotsFeed from "./src/components/Feeds/HotsFeed";
 
 export default function App() {
 
@@ -15,7 +16,7 @@ export default function App() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Bests" component={BestsFeed}/>
+                <Stack.Screen name="Hots" component={HotsFeed}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
@@ -24,6 +25,7 @@ export default function App() {
  *
  <Stack.Screen name="Home" component={Home} />
  <Stack.Screen name="News" component={NewsFeed}/>
+ <Stack.Screen name="Bests" component={BestsFeed}/>
 
  <Stack.Screen name="Subreddits" component={Subreddits}/>
  <Stack.Screen name="SearchSubreddits" component={SearchSubreddits}/>

@@ -24,4 +24,13 @@ const bestSubreddits = () => {
     )
 }
 
-export {searchSubreddits, newSubreddits, bestSubreddits}
+const hotSubreddits = () => {
+    const request = axios.get(Endpoints.FILTER_SUBREDDITS_BY_HOT_ENDPOINT)
+    return request.then(
+        response => {
+            return Promise.resolve(response.data)
+        }
+    )
+}
+
+export {searchSubreddits, newSubreddits, bestSubreddits, hotSubreddits}
