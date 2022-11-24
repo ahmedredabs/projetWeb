@@ -1,21 +1,14 @@
-import React, {useEffect, useState} from "react";
-import {newSubreddits} from "../../service/RedditApiService"
+import React from "react";
 import {Post} from "../Post/Post";
+import {ScrollView} from "react-native";
 
-const New = () => {
-    const [savedSubreddits, saveSubreddits] = useState([])
-    const [loaded, setLoaded] = useState(false)
+const New = ({feed}) => {
 
-    useEffect(() => {
-        newSubreddits().then(data => {
-            saveSubreddits(data.data.children)
-            setLoaded(true)
-        })
-    },[savedSubreddits, loaded])
-
-    return (loaded && savedSubreddits.map(post => <Post
-        key={post.data.id} post={post.data}
-    />));
+    return (
+        <ScrollView>
+            {feed.map(e => <Post key={e.data.id} post={e.data} />)}
+        </ScrollView>
+    );
 };
 
 export default New;
