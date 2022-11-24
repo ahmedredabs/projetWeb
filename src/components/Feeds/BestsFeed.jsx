@@ -1,19 +1,19 @@
-import {newSubreddits} from "../../service/RedditApiService";
+import {bestSubreddits} from "../../service/RedditApiService";
 import {useEffect, useState} from "react";
-import New from "../New/New";
+import Best from "../Best/Best";
 
-const Feed = () => {
+const BestsFeed = () => {
     const [savedSubreddits, saveSubreddits] = useState([])
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
-        newSubreddits().then(data => {
+        bestSubreddits().then(data => {
             saveSubreddits(data.data.children.slice(0,50))
             setLoaded(true)
         })
     },[savedSubreddits, loaded])
 
-    return loaded && <New feed={savedSubreddits} />;
+    return loaded && <Best feed={savedSubreddits} />;
 }
 
-export default Feed;
+export default BestsFeed;
