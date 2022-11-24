@@ -8,7 +8,7 @@ const BestsFeed = () => {
 
     useEffect(() => {
         bestSubreddits().then(data => {
-            saveSubreddits(data.data.children.slice(0, 50))
+            saveSubreddits(data.data.children.slice(0, 25))
             setLoaded(true)
         })
     }, [savedSubreddits, loaded])

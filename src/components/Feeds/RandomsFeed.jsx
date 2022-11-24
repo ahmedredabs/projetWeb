@@ -1,13 +1,13 @@
-import {newSubreddits} from "../../service/RedditApiService";
+import {randomSubreddits} from "../../service/RedditApiService";
 import {useEffect, useState} from "react";
 import Feed from "./Feed";
 
-const NewsFeed = () => {
+const RandomFeed = () => {
     const [savedSubreddits, saveSubreddits] = useState([])
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
-        newSubreddits().then(data => {
+        randomSubreddits().then(data => {
             saveSubreddits(data.data.children.slice(0, 25))
             setLoaded(true)
         })
@@ -16,4 +16,4 @@ const NewsFeed = () => {
     return loaded && <Feed feed={savedSubreddits}/>;
 }
 
-export default NewsFeed;
+export default RandomFeed;

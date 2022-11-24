@@ -4,6 +4,7 @@
 const FILTER_SUBREDDITS_BY_NEW_ENDPOINT = 'https://www.reddit.com/r/all/new/.json'
 const FILTER_SUBREDDITS_BY_BEST_ENDPOINT = 'https://www.reddit.com/r/all/best/.json'
 const FILTER_SUBREDDITS_BY_HOT_ENDPOINT = 'https://www.reddit.com/r/all/hot/.json'
+const FILTER_SUBREDDITS_BY_RANDOM_ENDPOINT = 'https://www.reddit.com/r/all/random/.json'
 
 /**
  * avec oath
@@ -16,4 +17,5 @@ module.exports = {
   FILTER_SUBREDDITS_BY_NEW_ENDPOINT,
   FILTER_SUBREDDITS_BY_BEST_ENDPOINT,
   FILTER_SUBREDDITS_BY_HOT_ENDPOINT,
+  FILTER_SUBREDDITS_BY_RANDOM_ENDPOINT,
 }
