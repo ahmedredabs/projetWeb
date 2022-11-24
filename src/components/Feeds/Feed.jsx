@@ -2,7 +2,7 @@ import React from "react";
 import {Post} from "../Post/Post";
 import {ScrollView} from "react-native";
 
-const Hot = ({feed}) => {
+const Feed = ({feed}) => {
 
     return (
         <ScrollView>
@@ -11,4 +11,4 @@ const Hot = ({feed}) => {
     );
 };
 
-export default Hot;
+export default Feed;

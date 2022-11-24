@@ -1,6 +1,6 @@
 import {newSubreddits} from "../../service/RedditApiService";
 import {useEffect, useState} from "react";
-import New from "../New/New";
+import Feed from "./Feed";
 
 const NewsFeed = () => {
     const [savedSubreddits, saveSubreddits] = useState([])
@@ -8,12 +8,12 @@ const NewsFeed = () => {
 
     useEffect(() => {
         newSubreddits().then(data => {
-            saveSubreddits(data.data.children.slice(0,50))
+            saveSubreddits(data.data.children.slice(0, 50))
             setLoaded(true)
         })
-    },[savedSubreddits, loaded])
+    }, [savedSubreddits, loaded])
 
-    return loaded && <New feed={savedSubreddits} />;
+    return loaded && <Feed feed={savedSubreddits}/>;
 }
 
 export default NewsFeed;

@@ -1,6 +1,4 @@
 import {StyleSheet} from 'react-native';
-import New from "./src/components/New/New";
-import Home from './src/components/Home/Home'
 import Subreddits from "./src/components/Subreddits/Subreddits";
 import SearchSubreddits from './src/components/SearchSubreddits/SearchSubreddits'
 import {NavigationContainer} from '@react-navigation/native';
@@ -26,6 +24,7 @@ export default function App() {
  <Stack.Screen name="Home" component={Home} />
  <Stack.Screen name="News" component={NewsFeed}/>
  <Stack.Screen name="Bests" component={BestsFeed}/>
+ <Stack.Screen name="Hots" component={HotsFeed}/>
 
  <Stack.Screen name="Subreddits" component={Subreddits}/>
  <Stack.Screen name="SearchSubreddits" component={SearchSubreddits}/>
