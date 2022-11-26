@@ -9,6 +9,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import NewsFeed from "./src/components/Feeds/NewsFeed";
 import BestsFeed from "./src/components/Feeds/BestsFeed";
 import HotsFeed from "./src/components/Feeds/HotsFeed";
+import RandomsFeed from './src/components/Feeds/RandomsFeed';
+import TopFeed from "./src/components/Feeds/TopFeed"
+
 
 export default function App() {
 

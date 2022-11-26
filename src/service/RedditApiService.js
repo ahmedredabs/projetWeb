@@ -15,6 +15,15 @@ const newSubreddits = () => {
     )
 }
 
+const topSubreddits = () => {
+    const request = axios.get(Endpoints.GET_TOP_SUBREDDITS_ENDPOINT)
+    return request.then(
+        response => {
+            return Promise.resolve(response.data)
+        }
+    )
+}
+
 const bestSubreddits = () => {
     const request = axios.get(Endpoints.FILTER_SUBREDDITS_BY_BEST_ENDPOINT)
     return request.then(
@@ -42,4 +51,4 @@ const randomSubreddits = () => {
     )
 }
 
-export {searchSubreddits, newSubreddits, bestSubreddits, hotSubreddits, randomSubreddits}
+export {searchSubreddits, newSubreddits, topSubreddits, bestSubreddits, hotSubreddits, randomSubreddits}
