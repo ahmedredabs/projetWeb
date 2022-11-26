@@ -1,6 +1,11 @@
 # Projet Web : React Native
 
 
+Installation
+------------------
+$ git clone 
+
+
 But fonctionnel de l'application 
 ------------------------------------
 
