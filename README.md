@@ -4,7 +4,7 @@
 But fonctionnel de l'application 
 ------------------------------------
 
-L'application pour mobile que nous avons développé a pour but de récupérer du contenu de site web [Reddit](https://www.reddit.com/) puis de l'afficher
+L'application pour mobile que nous avons développé a pour but de récupérer du contenu du site web [Reddit](https://www.reddit.com/) puis de l'afficher
 suivant différents critères définis par l'utilisateur. 
 
 **Par exemple :**
