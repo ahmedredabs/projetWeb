@@ -41,7 +41,7 @@ const Subreddits = ({navigation}) => {
   React.useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <Button onPress={() => navigation.navigate('SearchSubreddits', { name: 'Jane' })} title="Add" />
+        <Button onPress={() => navigation.navigate('Add Subreddit')} title="Add" />
       ),
     });
   }, [navigation]);
