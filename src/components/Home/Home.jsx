@@ -1,9 +1,20 @@
 import React from "react";
+import { View, Button, Text } from 'react-native';
 
+const Home = ({navigation}) => {
 
-const Home = () => {
+  React.useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Button onPress={() => navigation.navigate('Subreddits', { name: 'Jane' })} title="Subreddits" />
+      ),
+    });
+  }, [navigation]);
+
   return (
-    <h1>Test</h1>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+    </View>
   );
 
 };

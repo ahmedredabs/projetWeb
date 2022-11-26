@@ -1,6 +1,8 @@
 import React from "react"
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+//not used yet
+
   const storeObjectData = async (key, value) => {
     return AsyncStorage.setItem(key, JSON.stringify(value))
     .then(json => console.log('success!'))

@@ -1,9 +1,7 @@
 import React from "react"
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, Button } from 'react-native';
 import SearchSubreddits from './src/components/SearchSubreddits/SearchSubreddits'
 import Subreddits from "./src/components/Subreddits/Subreddits";
-import Storage from "./src/components/Storage/Storage";
 import Home from './src/components/Home/Home'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -14,20 +12,17 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="SearchSubreddits" component={SearchSubreddits}/>
+      <Stack.Navigator initialRouteName="Home" screenOptions={{headerTitleAlign: 'center'}}>
+        <Stack.Screen name="Home" component={Home} options={({ navigation, route }) => ({
+          headerTitle: (props) => <Text {...props} />,
+          headerRight: () => (
+            <Button title="Subreddits" />
+          ),
+        })}
+      />
         <Stack.Screen name="Subreddits" component={Subreddits}/>
+        <Stack.Screen name="SearchSubreddits" component={SearchSubreddits}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
