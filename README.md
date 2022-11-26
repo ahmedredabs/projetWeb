@@ -3,7 +3,9 @@
 
 Installation
 ------------------
-$ git clone 
+$ git clone https://github.com/ahmedredabs/projetWeb.git
+$ npm install expo 
+$ npx expo start 
 
 
 But fonctionnel de l'application 
