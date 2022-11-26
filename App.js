@@ -1,25 +1,38 @@
-import {StyleSheet} from 'react-native';
-import Subreddits from "./src/components/Subreddits/Subreddits";
-import TopFeed from "./src/components/Feeds/TopFeed"
+import React from "react"
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import SearchSubreddits from './src/components/SearchSubreddits/SearchSubreddits'
+import Subreddits from "./src/components/Subreddits/Subreddits";
+import Home from './src/components/Home/Home'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import NewsFeed from "./src/components/Feeds/NewsFeed";
 import BestsFeed from "./src/components/Feeds/BestsFeed";
 import HotsFeed from "./src/components/Feeds/HotsFeed";
 import RandomsFeed from './src/components/Feeds/RandomsFeed';
+import TopFeed from "./src/components/Feeds/TopFeed"
+
 
 export default function App() {
 
     const Stack = createNativeStackNavigator();
 
-    return (
-        <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name="Top Posts" component={TopFeed}/>
-            </Stack.Navigator>
-        </NavigationContainer>
-    );
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home" screenOptions={{headerTitleAlign: 'center'}}>
+        <Stack.Screen name="Home" component={Home} options={({ navigation, route }) => ({
+          headerTitle: (props) => <Text {...props} />,
+          headerRight: () => (
+            <Button title="Subreddits" />
+          ),
+        })}
+      />
+        <Stack.Screen name="Subreddits" component={Subreddits}/>
+        <Stack.Screen name="SearchSubreddits" component={SearchSubreddits}/>
+        <Stack.Screen name="Randoms" component={HotsFeed}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 /**
  *
@@ -35,10 +48,10 @@ export default function App() {
  */
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });

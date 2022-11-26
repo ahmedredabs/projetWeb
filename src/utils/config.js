@@ -7,10 +7,7 @@ const FILTER_SUBREDDITS_BY_HOT_ENDPOINT = 'https://www.reddit.com/r/all/hot/.jso
 const FILTER_SUBREDDITS_BY_RANDOM_ENDPOINT = 'https://www.reddit.com/r/all/random/.json'
 const GET_TOP_SUBREDDITS_ENDPOINT = 'https://www.reddit.com/r/all/top.json?limit=10'
 
-/**
- * avec oath
- */
-const SEARCH_SUBREDDITS_ENDPOINT = 'https://www.oauth.reddit.com/api/search_subreddits'
+const SEARCH_SUBREDDITS_ENDPOINT = 'https://api.reddit.com/api/search_reddit_names.json'
 
 
 module.exports = {
