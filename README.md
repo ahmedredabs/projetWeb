@@ -39,6 +39,8 @@ Notre application a été développée selon le type d'architecture MPA  et nous
 Code Source utilisé : Résumé
 -------------------------------
 
+Nous n'avons réutilisé, ni copié/collé aucun code source, tout a été développé en nous inspirant de la [documentation](https://reactnative.dev/docs) et du projet de _Arthur Boucard_ disponible sur [ce repo](https://github.com/ArthurBoucard/Redditech). Ce dernier nous a permis de visualiser l'appel à l'API et les requêtes à envoyer à Reddit.
+
 | Chemin du fichier où se trouve le code réutilisé | Auteur du code source réutilisé | URL où le code réutilisé est disponible | Raison de la réutilisation du code |
 |:------------------------------------------------:|:-------------------------------:|:---------------------------------------:|:----------------------------------:|
 |                                                  |                                 |                                         |                                    |
