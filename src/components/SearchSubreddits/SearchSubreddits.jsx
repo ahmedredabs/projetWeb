@@ -40,7 +40,7 @@ const SearchSubreddits = () => {
         data={searchedSubreddits}
         renderItem={({item}) => (
           <View >
-            <Text style={styles.item}> {item} + test</Text>
+            <Text style={styles.item}> {item}</Text>
             <Button onPress={() =>handleAddSubredditName(item)} title="Add"></Button>
           </View>
         )}

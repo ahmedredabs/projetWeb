@@ -4,10 +4,8 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import SearchSubreddits from './src/components/SearchSubreddits/SearchSubreddits'
 import Subreddits from "./src/components/Subreddits/Subreddits";
 import Home from './src/components/Home/Home'
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import NewsFeed from "./src/components/Feeds/NewsFeed";
 import BestsFeed from "./src/components/Feeds/BestsFeed";
 import HotsFeed from "./src/components/Feeds/HotsFeed";
