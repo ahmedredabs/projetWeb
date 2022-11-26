@@ -34,12 +34,10 @@ export default function App() {
 /**
  *
  <Stack.Screen name="Home" component={Home} />
-
  <Stack.Screen name="News" component={NewsFeed}/>
  <Stack.Screen name="Bests" component={BestsFeed}/>
  <Stack.Screen name="Hots" component={HotsFeed}/>
  <Stack.Screen name="Randoms" component={HotsFeed}/>
-
  <Stack.Screen name="Subreddits" component={Subreddits}/>
  <Stack.Screen name="SearchSubreddits" component={SearchSubreddits}/>
  */
