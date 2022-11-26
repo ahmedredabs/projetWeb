@@ -1,7 +1,9 @@
 import React from "react"
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const storeObjectData = async (key, value) => {
+//not used
+
+  const storeObjectData = async (key, value) => {
     return AsyncStorage.setItem(key, JSON.stringify(value))
         .then(() => console.log('success!'))
         .catch(() => console.log('error!'));

@@ -1,41 +1,78 @@
-import React, {useState} from "react";
-import {Button, Text, TextInput, View} from 'react-native';
-import {Form} from 'react-native-form-component';
-import Storage from "../Storage/Storage";
+import React, { useState, useEffect } from "react";
+import { StatusBar, SafeAreaView, FlatList, Text, TextInput, View, StyleSheet, Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useNavigation} from "@react-navigation/native";
+import * as Config from "../../utils/config"
+import {searchSubreddits} from "../../service/RedditApiService"
 
 const SearchSubreddits = () => {
-    const {navigate} = useNavigation();
-    const storeObjectData = Storage.storeObjectData
+  const [ savedSubreddits, setSavedSubreddits ] = useState([])
+  const [ searchedSubreddits, setSearchedSubreddits ] = useState([])
+  const [query, setQuery] = React.useState("");
 
-    const [subreddit, setSubredditName] = useState('')
-    const [savedSubreddits, saveSubreddits] = useState([])
+  const initialLoad = () => {
+    AsyncStorage.getItem(Config.SAVED_SUBREDDITS_KEY)
+    .then(req => JSON.parse(req))
+    .then(json => setSavedSubreddits(json))
+    .catch(error => console.log('Unable to load data!'))
+  }
+  useEffect(initialLoad, [])
+  
+  const handleAddSubredditName = (item) => {
+    var newArray = savedSubreddits.concat(item)
+    setSavedSubreddits(newArray)
+    AsyncStorage.setItem(Config.SAVED_SUBREDDITS_KEY, JSON.stringify(newArray))
+    .then(json => console.log('success!'))
+    .catch(error => console.log(error));
+  };
 
-    const handleAddSubredditName = (event) => {
-        event.preventDefault();
-        savedSubreddits.push(subreddit)
-        AsyncStorage.setItem('savedSubreddits', JSON.stringify(savedSubreddits))
-            .then(json => console.log('success!'))
-            .catch(error => console.log('error!'));
-        saveSubreddits(
-            savedSubreddits
-        );
-    };
+  const handleRequest = () => {
+    searchSubreddits(query).then(
+      data => setSearchedSubreddits(data.names)
+    ).catch(error => console.log(error))
+  }
 
-    const handleSubredditNameChange = (event) => {
-        setSubredditName(event.target.value);
-    };
+  return (
+    <View >
+      <TextInput style={styles.input} onChangeText = {setQuery} value={query} />
+      <Button  onPress={handleRequest} title="search"/>
+      <SafeAreaView style={styles.container}>
+      <FlatList
+        data={searchedSubreddits}
+        renderItem={({item}) => (
+          <View >
+            <Text style={styles.item}> {item}</Text>
+            <Button onPress={() =>handleAddSubredditName(item)} title="Add"></Button>
+          </View>
+        )}
+        keyExtractor={(item, index) => index}
+        extraData={searchedSubreddits}
+      />
+      </SafeAreaView>
+    </View>
+  );
 
-    return (
-        <View>
-            <Form onSubmit={handleAddSubredditName}>
-                <Text>Subreddit name: </Text>
-                <TextInput value={subreddit} onChange={handleSubredditNameChange}/>
-                <Button type="submit" title="add"/>
-            </Form>
-        </View>
-    );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+  item: {
+    backgroundColor: '#ffff',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16
+  },
+  title: {
+    fontSize: 32,
+  }
+})
 
 export default SearchSubreddits;
