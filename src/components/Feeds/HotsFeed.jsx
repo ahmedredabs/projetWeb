@@ -4,16 +4,18 @@ import Feed from "./Feed";
 
 const HotsFeed = () => {
     const [savedSubreddits, saveSubreddits] = useState([])
-    const [loaded, setLoaded] = useState(false)
 
-    useEffect(() => {
-        hotSubreddits().then(data => {
+    const initialLoad = () => {
+          hotSubreddits().then(data => {
             saveSubreddits(data.data.children.slice(0, 25))
-            setLoaded(true)
         })
-    }, [savedSubreddits, loaded])
+        .catch(error => {
+            console.error('Unable to load data.', error)
+          })
+      }
+      useEffect(initialLoad, [])
 
-    return loaded && <Feed feed={savedSubreddits}/>;
+    return <Feed feed={savedSubreddits}/>;
 }
 
 export default HotsFeed;

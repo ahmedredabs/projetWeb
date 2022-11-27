@@ -6,7 +6,7 @@ const Post = ({post}) => {
     const [height, setHeight] = useState(0)
     const desiredWidth = Dimensions.get("screen").width
 
-    useEffect(() => {
+    const initialLoad = () => {
         if(post && post.url) {
             setUrl(post.url)
             Image.getSize(post.url, (width, height) => {
@@ -15,7 +15,8 @@ const Post = ({post}) => {
                 setUrl(null);
             });
         }
-    }, [post, url])
+    }
+    useEffect(initialLoad, [])
 
     return (
         <View style={styles.container}>

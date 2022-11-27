@@ -4,16 +4,20 @@ import Feed from "./Feed";
 
 const BestsFeed = () => {
     const [savedSubreddits, saveSubreddits] = useState([])
-    const [loaded, setLoaded] = useState(false)
 
-    useEffect(() => {
+    const initialLoad = () => {
         bestSubreddits().then(data => {
-            saveSubreddits(data.data.children.slice(0, 25))
-            setLoaded(true)
+          saveSubreddits(data.data.children.slice(0, 25))
+      })
+      .catch(error => {
+          console.error('Unable to load data.', error)
         })
-    }, [savedSubreddits, loaded])
+    }
+    useEffect(initialLoad, [])
 
-    return loaded && <Feed feed={savedSubreddits}/>;
+    return (
+        <Feed feed={savedSubreddits}/>
+    )
 }
 
-export default BestsFeed;
+export default BestsFeed

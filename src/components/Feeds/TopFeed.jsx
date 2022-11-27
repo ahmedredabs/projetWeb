@@ -1,23 +1,23 @@
 import {useEffect, useState} from "react";
-import { ScrollView } from "react-native";
 import {topSubreddits} from "../../service/RedditApiService"
 import Feed from './Feed'
 
 const TopFeed = () => {
     const [savedSubreddits, saveSubreddits] = useState([])
-    const [loaded, setLoaded] = useState(false)
 
-    useEffect(() => {
+    const initialLoad = () => {
         topSubreddits().then(data => {
-            saveSubreddits(data.data.children.slice(0,25))
-            setLoaded(true)
+          saveSubreddits(data.data.children.slice(0, 25))
+      })
+      .catch(error => {
+          console.error('Unable to load data.', error)
         })
-    },[savedSubreddits, loaded])
+    }
+    useEffect(initialLoad, [])
 
     return (
-    <ScrollView>
-        {loaded && <Feed feed={savedSubreddits}/>}
-    </ScrollView>)
+        <Feed feed={savedSubreddits}/>
+    )
 }
 
 export default TopFeed
