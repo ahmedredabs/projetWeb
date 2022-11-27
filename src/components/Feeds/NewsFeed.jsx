@@ -12,7 +12,7 @@ const NewsFeed = () => {
                 saveSubreddits(payload.data.children)
                 setLoaded(true)
             }).catch(error => {
-                console.error('Unable to load data.', error)
+                console.error('Unable to load new subreddits\' page.', error)
             })
         }
     }, [loaded])

@@ -12,7 +12,7 @@ const HotsFeed = () => {
                 saveSubreddits(payload.data.children)
                 setLoaded(true)
             }).catch(error => {
-                console.error('Unable to load data.', error)
+                console.error('Unable to load hot subreddits\' page.', error)
             })
         }
     }, [loaded])

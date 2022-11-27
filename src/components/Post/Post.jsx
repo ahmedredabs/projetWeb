@@ -25,7 +25,6 @@ const Post = ({post}) => {
             </Text>
             <Text style={styles.author}>Author : {post.author}</Text>
             <Text style={styles.subreddit}>Subreddit : {post.subreddit_name_prefixed}</Text>
-            <Text style={styles.text}>+ {post.pwls} - {post.downs}</Text>
             {
                 (height > 0) &&
                 <Image
@@ -38,6 +37,7 @@ const Post = ({post}) => {
                     resizeMode="contain"
                 />
             }
+            <Text style={styles.text}>+ {post.pwls} - {post.downs}</Text>
             {(post.selftext !== '') && <Text style={styles.text}>{post.selftext}</Text>}
         </View>
     );

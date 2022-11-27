@@ -11,6 +11,8 @@ const TopsFeed = () => {
             topSubreddits().then(payload => {
                 saveSubreddits(payload.data.children)
                 setLoaded(true)
+            }).catch(error => {
+                console.error('Unable to load top subreddits\' page.', error)
             })
         }
     }, [loaded])

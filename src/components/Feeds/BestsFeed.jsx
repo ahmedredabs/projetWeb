@@ -11,6 +11,8 @@ const BestsFeed = () => {
             bestSubreddits().then(payload => {
                 saveSubreddits(payload.data.children)
                 setLoaded(true)
+            }).catch(error => {
+                console.error('Unable to load best subreddits\' page.', error)
             })
         }
     }, [savedSubreddits, loaded])
