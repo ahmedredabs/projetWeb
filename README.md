@@ -29,7 +29,6 @@ suivant différents critères définis par l'utilisateur.
 3. Afficher les posts ayant **le meilleur ratio** _upvotes_-_downvotes_ (Best Posts)
 4. Afficher les posts ayant **le plus de** _upvotes_ **du moment** (Hot Posts)
 5. Afficher les posts **les plus récents** (News) 
-6. Afficher des posts **aléatoires** (Random Posts) 
 
 
 Type d'architecture
