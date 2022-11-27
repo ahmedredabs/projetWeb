@@ -37,8 +37,8 @@ const Post = ({post}) => {
                     resizeMode="contain"
                 />
             }
-            <Text style={styles.text}>+ {post.pwls} - {post.downs}</Text>
             {(post.selftext !== '') && <Text style={styles.text}>{post.selftext}</Text>}
+            <Text style={styles.text}>+ {post.pwls} - {post.downs}</Text>
         </View>
     );
 };
