@@ -33,7 +33,7 @@ suivant différents critères définis par l'utilisateur.
 
 Type d'architecture
 --------------------
-Notre application a été développée selon le type d'architecture MPA  et nous faisons du Client Side Rendering avec React Native
+Notre application a été développée selon le type d'architecture SPA  et nous faisons du Client Side Rendering avec React Native
 
 Code Source utilisé : Résumé
 -------------------------------
