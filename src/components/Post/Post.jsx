@@ -2,20 +2,16 @@ import React, {useEffect, useState} from "react";
 import {Dimensions, Image, StyleSheet, Text, View} from "react-native";
 
 const Post = ({post}) => {
-    const [url, setUrl] = useState()
     const [height, setHeight] = useState(0)
     const desiredWidth = Dimensions.get("screen").width
 
     useEffect(() => {
-        if(post && post.url) {
-            setUrl(post.url)
+        if (post && post.url && (post.url.endsWith('.jpg') || post.url.endsWith('.png'))) {
             Image.getSize(post.url, (width, height) => {
                 setHeight(desiredWidth / width * height)
-            }, () => {
-                setUrl(null);
             });
         }
-    }, [post, url])
+    }, [post])
 
     return (
         <View style={styles.container}>
@@ -37,12 +33,12 @@ const Post = ({post}) => {
                         width: desiredWidth,
                         maxWidth: '100%',
                         height: height
-                }}
+                    }}
                     source={{uri: post.url}}
                     resizeMode="contain"
                 />
             }
-            {   (post.selftext !== '') && <Text style={styles.text}>{post.selftext}</Text>}
+            {(post.selftext !== '') && <Text style={styles.text}>{post.selftext}</Text>}
         </View>
     );
 };
@@ -70,9 +66,7 @@ const styles = StyleSheet.create({
         color: 'blue',
         fontSize: 8,
     },
-    image: {
-
-    },
+    image: {},
     author: {
         color: 'grey',
         fontSize: 8,

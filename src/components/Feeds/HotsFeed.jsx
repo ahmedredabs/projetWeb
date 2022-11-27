@@ -7,11 +7,13 @@ const HotsFeed = () => {
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
-        hotSubreddits().then(data => {
-            saveSubreddits(data.data.children.slice(0, 25))
-            setLoaded(true)
-        })
-    }, [savedSubreddits, loaded])
+        if(!loaded) {
+            hotSubreddits().then(payload => {
+                saveSubreddits(payload.data.children)
+                setLoaded(true)
+            })
+        }
+    }, [loaded])
 
     return loaded && <Feed feed={savedSubreddits}/>;
 }
