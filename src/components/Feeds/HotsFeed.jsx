@@ -7,15 +7,17 @@ const HotsFeed = () => {
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
-        if(!loaded) {
+        if (!loaded) {
             hotSubreddits().then(payload => {
                 saveSubreddits(payload.data.children)
                 setLoaded(true)
+            }).catch(error => {
+                console.error('Unable to load data.', error)
             })
         }
     }, [loaded])
 
-    return loaded && <Feed feed={savedSubreddits}/>;
+    return loaded && <Feed feed={savedSubreddits}/>
 }
 
-export default HotsFeed;
+export default HotsFeed

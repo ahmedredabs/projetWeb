@@ -14,11 +14,11 @@ export default function App() {
 
     return (
         <NavigationContainer>
-            <Drawer.Navigator initialRouteName="News">
-                <Drawer.Screen name="Hots" component={HotsFeed}/>
-                <Drawer.Screen name="Bests" component={BestsFeed}/>
-                <Drawer.Screen name="Tops" component={TopsFeed}/>
-                <Drawer.Screen name="News" component={NewsFeed}/>
+            <Drawer.Navigator initialRouteName="News" screenOptions={{headerTitleAlign: 'center'}}>
+                <Drawer.Screen name="New posts" component={NewsFeed}/>
+                <Drawer.Screen name="Hot posts" component={HotsFeed}/>
+                <Drawer.Screen name="Best posts" component={BestsFeed}/>
+                <Drawer.Screen name="Top posts" component={TopsFeed}/>
                 <Drawer.Screen name="Subreddits" component={Subreddits}/>
                 <Drawer.Screen name="Add Subreddit" component={SearchSubreddits}/>
             </Drawer.Navigator>

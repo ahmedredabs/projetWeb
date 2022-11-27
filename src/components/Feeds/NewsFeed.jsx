@@ -7,10 +7,12 @@ const NewsFeed = () => {
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
-        if(!loaded){
+        if (!loaded) {
             newSubreddits().then(payload => {
                 saveSubreddits(payload.data.children)
                 setLoaded(true)
+            }).catch(error => {
+                console.error('Unable to load data.', error)
             })
         }
     }, [loaded])
@@ -18,4 +20,4 @@ const NewsFeed = () => {
     return loaded && <Feed feed={savedSubreddits}/>;
 }
 
-export default NewsFeed;
+export default NewsFeed

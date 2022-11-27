@@ -12,13 +12,22 @@ const SearchSubreddits = () => {
   const initialLoad = () => {
     AsyncStorage.getItem(Config.SAVED_SUBREDDITS_KEY)
     .then(req => JSON.parse(req))
-    .then(json => setSavedSubreddits(json))
+    .then(json => {
+      if(json != null){
+        setSavedSubreddis(json)
+      }
+    })
     .catch(error => console.log('Unable to load data!'))
   }
   useEffect(initialLoad, [])
   
   const handleAddSubredditName = (item) => {
-    var newArray = savedSubreddits.concat(item)
+    var newArray = [];
+    if(savedSubreddits!=null){
+      newArray = savedSubreddits.concat(item)
+    }else{
+      newArray = newArray.push(item)
+    }
     setSavedSubreddits(newArray)
     AsyncStorage.setItem(Config.SAVED_SUBREDDITS_KEY, JSON.stringify(newArray))
     .then(json => console.log('success!'))

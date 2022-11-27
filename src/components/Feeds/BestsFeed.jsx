@@ -7,7 +7,7 @@ const BestsFeed = () => {
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
-        if(!loaded) {
+        if (!loaded) {
             bestSubreddits().then(payload => {
                 saveSubreddits(payload.data.children)
                 setLoaded(true)
@@ -15,7 +15,7 @@ const BestsFeed = () => {
         }
     }, [savedSubreddits, loaded])
 
-    return loaded && <Feed feed={savedSubreddits}/>;
+    return loaded && <Feed feed={savedSubreddits}/>
 }
 
-export default BestsFeed;
+export default BestsFeed
